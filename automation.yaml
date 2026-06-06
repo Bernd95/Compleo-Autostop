@@ -1,0 +1,25 @@
+alias: Laden automatisch bei 50% Batteriestand stoppen
+description: >-
+  Beendet den Ladevorgang automatisch, wenn der Stand der BYD-Batterie unter 50%
+  sinkt. Der Vorgang kann nicht über die myBMW-App gestartet werden.
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.byd_battery_box_premium_hv_ladezustand
+    for:
+      hours: 0
+      minutes: 2
+      seconds: 0
+    below: 50
+conditions: []
+actions:
+  - action: shell_command.compleo_stop
+    metadata: {}
+    data: {}
+  - action: notify.mobile_all
+    metadata: {}
+    data:
+      message: >-
+        Der Ladevorgang des Fahrzeugs wird gestoppt, da der Batteriestand unter
+        50% gesunken ist.
+mode: single
