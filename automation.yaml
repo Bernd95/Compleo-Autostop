@@ -16,7 +16,7 @@ actions:
   - action: shell_command.compleo_stop
     metadata: {}
     data: {}
-  - action: notify.mobile_all
+  - action: notify.xxx_mobile_app_ON_YOUR_PHONE
     metadata: {}
     data:
       message: >-
